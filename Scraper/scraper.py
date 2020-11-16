@@ -10,9 +10,11 @@ def scrap_amazon():
     data=requests.get("https://www.amazon.in/Test-Exclusive-748/dp/B07DJLVJ5M/",headers=HEADERS)
     soup = BeautifulSoup(data.content, 'html.parser')
     results=soup.find('span',attrs={'class':'a-size-large product-title-word-break'}).text
+    results=results.strip()
     print(results)
     l=list(results.split(" "))
     print(l[0])
+    return l[0]
 
 scrap_amazon()
 

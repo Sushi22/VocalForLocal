@@ -1,0 +1,14 @@
+{
+  "name": "VocalForlocal",
+  "version": "1.0",
+  "description": "Boycott Videshi, Buy Swadeshi",
+  "page_action": {
+    "default_popup": "popup.html"
+  },
+  "background":{
+    "scripts":["eventPage.js"],
+    "persistent": false
+    
+  },
+  "manifest_version": 2
+}
