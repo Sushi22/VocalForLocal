@@ -35,6 +35,3 @@ print(origin)
 
 print(origin.find_all(text=True,recursive=True))
 
-
-
-
