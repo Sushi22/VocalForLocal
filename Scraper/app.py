@@ -1,21 +1,31 @@
 from flask import Flask
 from flask import request
-from flask_restful import Resource, Api
+from flask_restful import Resource, Api, reqparse
 from scraper import *
+from flask_cors import CORS, cross_origin
 
 app=Flask(__name__)
+cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
 api = Api(app)
+
+parser = reqparse.RequestParser()
+parser.add_argument('url')
 
 class Product_Details(Resource):
     url=None
     def get(self):
-        #call to scraper function
-        result=scrap_amazon()
-        return {"url":result}
+        print(Product_Details.url)
+        #call to scraper functio
+        url=Product_Details.url
+        result=scrap_amazon(url)
+        company_name={"url":result}
 
     def post(self):
-        self.url=request.data
-        print(self.url)
+        args=parser.parse_args()
+        url=Product_Details.url
+        Product_Details.url= args['url']
+        print(url)
         return 201
 
 api.add_resource(Product_Details,'/details')
