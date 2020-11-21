@@ -18,8 +18,6 @@
                     console.log(data);
                 }
                 });
-
-
         },4000)
 
        
