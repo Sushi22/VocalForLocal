@@ -41,6 +41,3 @@ def get_origin(name):
 
     except Exception as e:
         return("Something went wrong! Please TRY AGAIN")
-
-
-get_origin("oneplus")
