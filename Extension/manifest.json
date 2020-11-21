@@ -3,28 +3,31 @@
   "version": "1.0",
   "description": "Boycott Videshi, Buy Swadeshi",
   "page_action": {
-    "default_popup": "popup.html"
+
+    "default_icons": {
+      "128": "icon128.png",
+      "48": "icon48.png",
+      "16": "icon16.png"
+    }
   },
-  "icons": {
-    "128": "icon128.png",
-    "48": "icon48.png",
-    "16": "icon16.png"
-  },
+  
   "background":{
     "scripts":["eventPage.js"],
     "persistent": false
     
   },
+ 
   "manifest_version": 2,
   "content_scripts":[
     {
       "matches": ["https://www.amazon.in/*"],
-      "js": ["content.js"]
+      "js": ["content.js", "jquery-3.1.0.min.js"]
       
     }
   ],
   "permissions":[
     "tabs",
-    "https://www.amazon.in/*"
+    "https://www.amazon.in/*",
+    "https://localhost:5000/details"
   ]
 }
