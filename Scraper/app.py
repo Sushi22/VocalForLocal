@@ -2,7 +2,9 @@ from flask import Flask
 from flask import request
 from flask_restful import Resource, Api, reqparse
 from scraper import *
+from origin_scraper import *
 from flask_cors import CORS, cross_origin
+import json
 
 app=Flask(__name__)
 cors = CORS(app)
@@ -19,7 +21,9 @@ class Product_Details(Resource):
         #call to scraper functio
         url=Product_Details.url
         result=scrap_amazon(url)
-        company_name={"url":result}
+        company=get_origin(result)
+        return json.dumps({"headquarters":company})
+        
 
     def post(self):
         args=parser.parse_args()

@@ -1,4 +1,5 @@
-
+              
+        
         $.ajax({
             url: "http://localhost:5000/details",
             type: "POST",
@@ -16,8 +17,11 @@
                 dataType: "json",
                 success: function (data) {
                     console.log(data);
+                    var obj=JSON.parse(data);
+                    console.log(obj);
+                    console.log(obj.headquarters);
+                    localStorage.setItem("my_data", obj.url); 
+                    
                 }
                 });
         },4000)
-
-       

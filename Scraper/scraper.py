@@ -14,6 +14,6 @@ def scrap_amazon(url):
     print(results)
     l=list(results.split(" "))
     print(l[0])
-    return l[0]
+    return str(l[0])
 
 

@@ -3,7 +3,7 @@
   "version": "1.0",
   "description": "Boycott Videshi, Buy Swadeshi",
   "page_action": {
-    // "default_popup": "popup.html"
+
     "default_icons": {
       "128": "icon128.png",
       "48": "icon48.png",
