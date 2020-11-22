@@ -1,30 +1,36 @@
-              
-        
-        $.ajax({
-            url: "http://localhost:5000/details",
-            type: "POST",
+
+
+        function postData(ajaxurl) { 
+            return $.ajax({
+              url: ajaxurl,
+              type: "POST",
             contentType: "application/json",
             data: JSON.stringify({"url": window.location.toString()})
-        }).done(function(data) {
-            console.log(data);
-        });
-
-        setTimeout(function(){
-
-            $.ajax({
-                url: "http://localhost:5000/details",
-                type: "GET",
-                dataType: "json",
-            }).done(function(data)
-            {
-                    console.log(data);
-                    var obj=JSON.parse(data);
-                    console.log(obj);
-                    console.log(obj.headquarters);
-                    // return [obj.headquarters] 
-                    
             });
+          };
 
-
-        },3000)
-   
+        function getData(ajaxurl) { 
+            return $.ajax({
+              url: ajaxurl,
+              type: 'GET',
+              dataType: "json",
+            });
+          };
+          
+          async function test() {
+            try {
+                
+                const data = await postData("http://localhost:5000/details")
+                const res = await getData("http://localhost:5000/details")
+                obj=JSON.parse(res);
+                console.log(obj);
+                localStorage.setItem('origin', obj.headquarters);
+                fetched=obj.headquarters.toString();
+                chrome.runtime.sendMessage({todo:"notify",fetch: fetched});
+              
+            } catch(err) {
+              console.log(err);
+            }
+          }
+          
+          test();
