@@ -15,15 +15,16 @@
                 url: "http://localhost:5000/details",
                 type: "GET",
                 dataType: "json",
-                success: function (data) {
+            }).done(function(data)
+            {
                     console.log(data);
                     var obj=JSON.parse(data);
                     console.log(obj);
                     console.log(obj.headquarters);
-                    localStorage.setItem("my_data", obj.url); 
+                    // return [obj.headquarters] 
                     
-                }
-                });
+            });
 
 
-        },4000)
+        },3000)
+   
