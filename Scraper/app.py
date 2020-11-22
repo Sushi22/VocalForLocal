@@ -5,6 +5,7 @@ from scraper import *
 from origin_scraper import *
 from flask_cors import CORS, cross_origin
 import json
+import time
 
 app=Flask(__name__)
 cors = CORS(app)

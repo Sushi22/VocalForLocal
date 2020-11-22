@@ -9,11 +9,17 @@ HEADERS = ({'User-Agent':
 def scrap_amazon(url):
     data=requests.get(url,headers=HEADERS)
     soup = BeautifulSoup(data.content, 'html.parser')
-    results=soup.find('span',attrs={'class':'a-size-large product-title-word-break'}).text
-    results=results.strip()
-    print(results)
-    l=list(results.split(" "))
-    print(l[0])
-    return str(l[0])
+    try:
+        results=soup.find('span',attrs={'class':'a-size-large product-title-word-break'}).text
+        results=results.strip()
+        print(results)
+        l=list(results.split(" "))
+        print(l[0])
+        return str(l[0])
+
+    except Exception as e:
+        print(e)
+        return("")
+
 
 
