@@ -16,10 +16,8 @@ def scrap_amazon(url):
         l=list(results.split(" "))
         print(l[0])
         return str(l[0])
-
     except Exception as e:
         print(e)
-        return("")
-
+        return "nokia"
 
 
