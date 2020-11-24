@@ -7,17 +7,18 @@ HEADERS = ({'User-Agent':
             'Accept-Language': 'en-US, en;q=0.5'})
 
 def scrap_amazon(url):
-    data=requests.get(url,headers=HEADERS)
-    soup = BeautifulSoup(data.content, 'html.parser')
+    
     try:
-        results=soup.find('span',attrs={'class':'a-size-large product-title-word-break'}).text
+        print(url)
+        data=requests.get(url,headers=HEADERS)
+        soup = BeautifulSoup(data.content, 'html.parser')
+        results=soup.find('span',id='productTitle').text
         results=results.strip()
         print(results)
         l=list(results.split(" "))
         print(l[0])
         return str(l[0])
+
     except Exception as e:
         print(e)
-        return "nokia"
-
-
+        return None

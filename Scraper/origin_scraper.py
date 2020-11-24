@@ -35,7 +35,7 @@ def get_origin(name):
 
         link.click()
 
-        element = WebDriverWait(driver, 7).until( 
+        element = WebDriverWait(driver, 2).until( 
         EC.presence_of_element_located((By.CLASS_NAME, "country-name"))) 
 
         country_name=driver.find_element_by_class_name("country-name")
@@ -46,12 +46,17 @@ def get_origin(name):
 
         print(country_name.text)
 
+
         res=country_name.text
 
+
         return(str(res))
+        
 
     except Exception as e:
+
         print(e)
+
         return("Something went wrong! Please TRY AGAIN")
 
-# get_origin("panasonic")
+# get_origin("apple")

@@ -17,20 +17,17 @@ parser.add_argument('url')
 
 class Product_Details(Resource):
     url=None
-    def get(self):
+    def get(self):                                  # this function call to the scraper function 
         print(Product_Details.url)
-        #call to scraper functio
-        url=Product_Details.url
-        result=scrap_amazon(url)
-        company=get_origin(result)
-        return json.dumps({"headquarters":company})
+        url=Product_Details.url                 
+        result=scrap_amazon(url)                    # result contains the comapny/brand name from the url received from ajax from client
+        origin=get_origin(result)                   # origin contains the origin/country to which the brand belongs
+        return json.dumps({"headquarters":origin})  # return response as json(country name) to the user/client.
         
 
     def post(self):
-        args=parser.parse_args()
-        url=Product_Details.url
-        Product_Details.url= args['url']
-        print(url)
+        args=parser.parse_args()                    # parsing the url posted to this endpoint from ajax
+        Product_Details.url= args['url']            # taking it in the static variable 'url'.
         return 201
 
 api.add_resource(Product_Details,'/details')
