@@ -35,7 +35,7 @@ git clone https://github.com/Sushi22/VocalForLocal.git
         </p><br><br>
 10. When user is on a specifc product page like shown below, and clicks on the extension icon origin of the product is shown in the form of a chrome notification(Make sure your chrome notifications are on).
         <p>
-            <img src="Screenshots/Picture4.png">
+            <img src="Screenshots/Picture5.png">
         </p>
         
 # Link for installing Chromedriver
