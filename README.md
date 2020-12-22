@@ -7,10 +7,7 @@ Python-Flask
 
 # Steps
 1. Clone the Repo.
-<br>
 git clone https://github.com/Sushi22/VocalForLocal.git
-<br>
-
 2. Run pip -r requirements.txt<br>
 3. Install chromedriver of version compatible with your browser.<br>
 4. Go to Scraper folder in the project directory. <br>
@@ -39,7 +36,6 @@ git clone https://github.com/Sushi22/VocalForLocal.git
         <p>
             <img src="Screenshots/Picture4.png">
         </p>
-<br>
 # Link for installing Chromedriver
 https://chromedriver.chromium.org/downloads
 
